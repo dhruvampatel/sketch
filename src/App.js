@@ -57,9 +57,10 @@ function App() {
   }
 
   return (
-    <div>
-      {window.location.host === 'localhost:3000' ? <div className="App" id='container' style={{
-      backgroundImage: 'url(https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg)',
+    <div className="App" id='container' style={{
+      backgroundImage: window.location.host === 'localhost:3000' ?
+        'url(https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg)' : 
+        'url(https://i.imgur.com/Ofu3v4t.jpeg)',
       backgroundSize: 'cover',
       // backgroundRepeat: 'no-repeat',
       minWidth: '100%',
@@ -68,17 +69,6 @@ function App() {
       height: '100vh',
     }}>
       <Sketch setup={setup} draw={draw} mouseDragged={mouseDragged} />
-    </div> : <div className="App" id='container' style={{
-      backgroundImage: 'url(https://i.imgur.com/Ofu3v4t.jpeg)',
-      backgroundSize: 'cover',
-      // backgroundRepeat: 'no-repeat',
-      minWidth: '100%',
-      maxWidth: '100%',
-      width: '100%',
-      height: '100vh'
-    }}>
-      <Sketch setup={setup} draw={draw} mouseDragged={mouseDragged} />
-    </div>}
     </div>
   );
 }
